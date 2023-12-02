@@ -5,6 +5,7 @@ public class RockPaperScissorsGame : MonoBehaviour
 {
     public Text resultText;
     public Image computerHandImage; // 추가된 부분
+    public Image computer;
 
     private enum HandShape { Rock, Paper, Scissors };
     private HandShape playerChoice;
@@ -53,16 +54,19 @@ public class RockPaperScissorsGame : MonoBehaviour
         if (playerChoice == computerChoice)
         {
             resultText.text = "Draw";
+            computer.sprite = Resources.Load<Sprite>("Ori_000");
         }
         else if ((playerChoice == HandShape.Rock && computerChoice == HandShape.Scissors) ||
                  (playerChoice == HandShape.Paper && computerChoice == HandShape.Rock) ||
                  (playerChoice == HandShape.Scissors && computerChoice == HandShape.Paper))
         {
             resultText.text = "Win";
+            computer.sprite = Resources.Load<Sprite>("Ori_001");
         }
         else
         {
             resultText.text = "Lose";
+            computer.sprite = Resources.Load<Sprite>("Ori_002");
         }
     }
 }
